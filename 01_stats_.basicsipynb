@@ -1,0 +1,850 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "3ca102ba-d4d7-46b7-ae2f-8aeb867276e8",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "## measure of cental tendency"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "71635b1a-eda8-49d9-9b4d-e8c5d279dbc2",
+   "metadata": {},
+   "source": [
+    "#  mean , median ,and mode"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "c8273298-79ae-43b8-8768-55ae950ad1ee",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "arr = np.array([1,2,3,4,5,6,7,8])\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "d2524e45-07b8-4ddf-8ff9-f5cf6195062f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([1, 2, 3, 4, 5, 6, 7, 8])"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "b0c2a088-657c-4263-8f01-faf4704e4c3b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4.5"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.mean(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "cbdf80a0-81af-4e0e-a674-16c38a535f28",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4.5"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.median(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "49287218-3726-4dab-ada1-c5b213a72a52",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#  if we insert an outlier\n",
+    "\n",
+    "arr = [1,2,3,4,4,5,6,100]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "078b023f-2fa1-493c-99e5-2685740aa76f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4, 4, 5, 6, 100]"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "6baff8b9-cfea-4c4f-a955-cf6d6ec2d52e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "15.625"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.mean(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "cf801545-e591-495e-92a4-c718ade7cd5f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4.0"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.median(arr)  # median is least affected by outliers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "07b0e2df-9ffa-4518-8c62-7dd3e9e5cbf6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "802eba81-64a0-435b-85bf-a6bed5a6300a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy import stats"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "56f9a20a-977f-4a2e-8807-7675531d52b7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/tmp/ipykernel_70/1379525054.py:1: FutureWarning: Unlike other reduction functions (e.g. `skew`, `kurtosis`), the default behavior of `mode` typically preserves the axis it acts along. In SciPy 1.11.0, this behavior will change: the default value of `keepdims` will become False, the `axis` over which the statistic is taken will be eliminated, and the value None will no longer be accepted. Set `keepdims` to True or False to avoid this warning.\n",
+      "  stats.mode(arr)\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "ModeResult(mode=array([4]), count=array([2]))"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "stats.mode(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f5f39282-fb40-428c-8a42-431a90a0e8cc",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "db3f5881-a8d6-4b0e-a353-f91ebd6d0937",
+   "metadata": {},
+   "source": [
+    "# measure of dispersion - variance , standard deviation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "9276b260-9892-45e7-b4c7-58e65feb9a8f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4, 4, 5, 6, 100]"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "2a28a34e-de06-4927-870f-b12f3fc26a61",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1019.234375"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.var(arr)   # variance tells how much the data set is spread"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "5e9fea0c-a231-4d83-a2c3-23b23ee200dc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "31.92545027090456"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.std(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "907619aa-4300-4ec5-8408-6587f2763cb0",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3668e950-9528-4ec4-a3af-5b834badb90c",
+   "metadata": {},
+   "source": [
+    "# covariance and correlation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "4ddb8b21-7f1f-4416-a820-d4e081ecb42c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import seaborn as sns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "0ea59203-b088-4f42-9035-ec0e8c8d5277",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = sns.load_dataset(\"healthexp\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "031241de-5466-4f68-9455-5577bd1c1989",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Year</th>\n",
+       "      <th>Country</th>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1970</td>\n",
+       "      <td>Germany</td>\n",
+       "      <td>252.311</td>\n",
+       "      <td>70.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1970</td>\n",
+       "      <td>France</td>\n",
+       "      <td>192.143</td>\n",
+       "      <td>72.2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1970</td>\n",
+       "      <td>Great Britain</td>\n",
+       "      <td>123.993</td>\n",
+       "      <td>71.9</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>1970</td>\n",
+       "      <td>Japan</td>\n",
+       "      <td>150.437</td>\n",
+       "      <td>72.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>1970</td>\n",
+       "      <td>USA</td>\n",
+       "      <td>326.961</td>\n",
+       "      <td>70.9</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Year        Country  Spending_USD  Life_Expectancy\n",
+       "0  1970        Germany       252.311             70.6\n",
+       "1  1970         France       192.143             72.2\n",
+       "2  1970  Great Britain       123.993             71.9\n",
+       "3  1970          Japan       150.437             72.0\n",
+       "4  1970            USA       326.961             70.9"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "a6fead74-a8fd-4ffc-adbd-8d2992a66ca2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/tmp/ipykernel_70/1545644723.py:1: FutureWarning: The default value of numeric_only in DataFrame.cov is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.\n",
+      "  df.cov()\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Year</th>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Year</th>\n",
+       "      <td>201.098848</td>\n",
+       "      <td>2.571883e+04</td>\n",
+       "      <td>41.915454</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <td>25718.827373</td>\n",
+       "      <td>4.817761e+06</td>\n",
+       "      <td>4166.800912</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "      <td>41.915454</td>\n",
+       "      <td>4.166801e+03</td>\n",
+       "      <td>10.733902</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                         Year  Spending_USD  Life_Expectancy\n",
+       "Year               201.098848  2.571883e+04        41.915454\n",
+       "Spending_USD     25718.827373  4.817761e+06      4166.800912\n",
+       "Life_Expectancy     41.915454  4.166801e+03        10.733902"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.cov()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "293e4b5a-99c9-484e-b223-7d03ef0ac8b7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/tmp/ipykernel_70/3025111369.py:1: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.\n",
+      "  df.corr(method = \"pearson\")\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Year</th>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Year</th>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.826273</td>\n",
+       "      <td>0.902175</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <td>0.826273</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.579430</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "      <td>0.902175</td>\n",
+       "      <td>0.579430</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                     Year  Spending_USD  Life_Expectancy\n",
+       "Year             1.000000      0.826273         0.902175\n",
+       "Spending_USD     0.826273      1.000000         0.579430\n",
+       "Life_Expectancy  0.902175      0.579430         1.000000"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.corr(method = \"pearson\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "186839ec-1765-4d8e-a047-d60b54adc0a7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/tmp/ipykernel_70/636568451.py:1: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.\n",
+      "  df.corr(method = \"spearman\")\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Year</th>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Year</th>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.931598</td>\n",
+       "      <td>0.896117</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Spending_USD</th>\n",
+       "      <td>0.931598</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.747407</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Life_Expectancy</th>\n",
+       "      <td>0.896117</td>\n",
+       "      <td>0.747407</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                     Year  Spending_USD  Life_Expectancy\n",
+       "Year             1.000000      0.931598         0.896117\n",
+       "Spending_USD     0.931598      1.000000         0.747407\n",
+       "Life_Expectancy  0.896117      0.747407         1.000000"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.corr(method = \"spearman\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "9cc72c87-7cce-4ba8-a5ce-f88d381dacd0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4, 4, 5, 6, 100]"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "a5ce0e5b-2107-4c36-9c0d-c7c5af514549",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "arr1 = np.array([9,8,6,5,4,3,2,1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "8b3ea5f6-602f-4ca5-b162-4f578ab7a6bd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([9, 8, 6, 5, 4, 3, 2, 1])"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "77a4b623-d5ba-4d0e-b144-70975ee0bea2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array(7.92857143)"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.cov(arr1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "932969c4-4fc5-4a27-8ae6-661e5e8c6079",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6.9375"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.var(arr1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "f2e7147a-d366-4b70-9059-97fc243f56d1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[   7.92857143,  -55.39285714],\n",
+       "       [ -55.39285714, 1164.83928571]])"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.cov(arr1,arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "3da53b42-99c5-4868-850c-c945c8680b34",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "PearsonRResult(statistic=-0.5763990949697633, pvalue=0.134768547266626)"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "stats.pearsonr(arr1,arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "80394c9f-8d15-481f-9455-9f1548ad8932",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "SpearmanrResult(correlation=-0.9940297973880048, pvalue=5.296153515645123e-07)"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "stats.spearmanr(arr1,arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5001e8be-9927-489d-bda5-a12a705fcc73",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
